@@ -1,0 +1,64 @@
+﻿@model IEnumerable<RentYouRide.Models.tbl_Return>
+
+@{
+    ViewBag.Title = "RETURN"; @*mainheadng of VIEWBAG*@
+}
+
+<h2>RETURN OF VEHICLE</h2> @*mainheadng of controller*@
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CarNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Inspector)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Driver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Return_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Elapsed_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fine)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Inspector)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Driver)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Return_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Elapsed_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fine)
+            </td>
+            <td>
+               
+                @Html.ActionLink("Details", "Details", new { id = item.ID_Return })
+              
+            </td>
+        </tr>
+    }
+
+</table>

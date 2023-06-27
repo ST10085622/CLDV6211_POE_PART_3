@@ -1,0 +1,52 @@
+﻿@model IEnumerable<RentYouRide.Models.tbl_Inspector>
+
+@{
+    ViewBag.Title = "INSPECTOR"; @*mainheadng of VIEWBAG*@
+}
+
+<h2>INSPECTOR</h2> @*mainheadng of controller*@
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InspectorNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InspectorNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID_Inspector }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID_Inspector }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID_Inspector })
+            </td>
+        </tr>
+    }
+
+</table>
